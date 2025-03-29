@@ -36,3 +36,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# DevTools runtime files
+apps/devtools/processes.json
+apps/devtools/devtools.log
