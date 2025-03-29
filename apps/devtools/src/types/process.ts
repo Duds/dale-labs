@@ -3,6 +3,7 @@ export interface ProcessInfo {
   app: string;
   status: 'running' | 'stopped';
   startedAt: string;
+  port: number;
 }
 
 export interface ProcessState {
