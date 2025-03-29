@@ -1,0 +1,6 @@
+dashboard.js:  // TODO: Fetch the user's name and list of cards from the backend/database
+newCard.js:    // TODO: Send the hazard to the GPT API and save the response in the database
+review.js:    // TODO: Replace the placeholder data with the actual suggestions from the GPT API
+review.js:    // TODO: Save the selected suggestions in the database and update the Bow Tie Card
+visualise.js:    // TODO: Fetch the confirmed Bow Tie Card data from the database
+visualise.js:  // TODO: Replace this placeholder with actual visualization code

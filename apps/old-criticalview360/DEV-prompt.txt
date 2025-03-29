@@ -1,0 +1,236 @@
+You are a senior developer. Our team has established a backlog for you to begin development on. Lets work step by step. First I need to discuss any technical dependencies or constraints that might impact the order of development. The Project is a Critical Controls theory SaaS application. It will be web based.
+
+
+
+#  1. Project Structure
+.
+├── MIT_licence.md
+├── README.md
+├── TODO-list.txt
+├── __tests__
+│   └── user.test.js
+├── client
+│   ├── README.md
+│   ├── build
+│   │   ├── asset-manifest.json
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   │   └── static
+│   │       ├── css
+│   │       │   ├── main.073c9b0a.css
+│   │       │   └── main.073c9b0a.css.map
+│   │       ├── js
+│   │       │   ├── 787.c4e7f8f9.chunk.js
+│   │       │   ├── 787.c4e7f8f9.chunk.js.map
+│   │       │   ├── main.b5ba5e33.js
+│   │       │   ├── main.b5ba5e33.js.LICENSE.txt
+│   │       │   └── main.b5ba5e33.js.map
+│   │       └── media
+│   │           └── logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── components
+│       │   ├── Dashboard.js
+│       │   ├── Login.js
+│       │   ├── NewCard.js
+│       │   ├── Register.js
+│       │   ├── Review.js
+│       │   └── Visualise.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── reportWebVitals.js
+│       └── setupTests.js
+├── code_of_conduct.md
+├── contribute.md
+├── installation.md
+├── package-lock.json
+├── package.json
+└── server
+    ├── app.js
+    ├── controllers
+    │   ├── authentication.js
+    │   ├── cardController.js
+    │   ├── dashoardController.js
+    │   ├── loginController.js
+    │   ├── reviewController.js
+    │   ├── userController.js
+    │   └── visualisationController.js
+    ├── database.js
+    ├── firebase.js
+    ├── models
+    │   ├── bowTieCards.js
+    │   └── user.js
+    ├── package-lock.json
+    ├── package.json
+    ├── routes
+    │   ├── dashboard.js
+    │   ├── login.js
+    │   ├── newCard.js
+    │   ├── register.js
+    │   ├── review.js
+    │   ├── user.js
+    │   └── visualise.js
+    └── server.js
+
+# 2. Technology Stack
+Frontend: React.js
+React is a popular JavaScript library for building user interfaces, especially for single-page applications. It's maintained by Facebook and a community of individual developers and companies.
+
+Backend: Node.js with Express.js
+Node.js is a JavaScript runtime that allows you to run JavaScript on the server side. Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+Database: MongoDB
+MongoDB is a source-available cross-platform document-oriented database program. It is classified as a NoSQL database program and uses JSON-like documents with optional schemas, which makes it very flexible and scalable.
+
+Authentication: Firebase Authentication
+Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+
+API calls: Axios
+Axios is a popular, promise-based HTTP client that sports an easy-to-use API and can be used both in the browser and the server (with Node.js).
+
+Visualization: D3.js
+D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. It's powerful but has a steep learning curve. For simpler visualizations, you could also use Chart.js.
+
+Testing: Jest
+Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using: Babel, TypeScript, Node.js, React, Angular, Vue.js and Svelte.
+
+Version Control: Git
+Git is the most widely used version control system that tracks changes to files in a project over time. It allows multiple developers to work on the same project simultaneously.
+
+Deployment: Netlify for front-end and Heroku for backend
+Netlify and Heroku are platforms that provide a way to deploy, run, and manage applications written in open languages and frameworks.
+
+## Stack Architecture:
+graph LR
+    A[Client - React.js] -- HTTP/HTTPS Requests --> B{Express.js Server}
+    B -- REST API Calls --> C[MongoDB Database]
+    B -- Authentication --> D[Firebase]
+    B -- AI Suggestions --> E[GPT API]
+    B -- Visualization --> F[D3.js]
+    B -- Unit Tests --> G[Jest]
+    C -- Data Storage --> B
+    D -- User Authentication --> B
+    E -- AI Suggestions --> B
+    F -- Data Visualization --> B
+    G -- Test Results --> B
+    B -- API Calls --> H[Controllers]
+    H -- Database Operations --> I[Mongoose]
+    I -- Interacts with --> C
+    B -- HTTP/HTTPS Responses --> A
+
+## Service Blueprint
+
+Absolutely, using those categories, the service blueprint can be re-structured as follows:
+
+Physical Evidence	User Actions	Touchpoint	Frontend (React.js)	Backend (Node.js, Express.js)	Support Processes (Database, Authentication, API Calls, Visualization, Testing)	Supporting Technology
+Registration form	Register an account	Application Interface	Display registration form	Handle registration request	Store user details, Register user, Test user registration	MongoDB, Firebase, Jest
+Login form	Log into the application	Application Interface	Display login form	Handle login request	Validate user details, Authenticate user, Test user login	MongoDB, Firebase, Jest
+New Bow Tie Card form	Create a new Bow Tie Card	Application Interface	Display new card form	Handle new card request	Store card details, Test card creation	MongoDB, Jest
+Hazard/Risk input field	Enter a hazard/risk into the card	Application Interface	Handle user input	Send input to GPT API	Send request to GPT API, Test hazard/risk input	Axios, Jest
+AI-generated suggestions	Review AI-generated suggestions	Application Interface	Display suggestions	Handle suggestion review requests	Update card details, Test suggestion review	MongoDB, Jest
+Confirmation button	Confirm suggestions and create card	Application Interface	Handle user confirmation	Update card with confirmed details	Update card in database, Test card confirmation	MongoDB, Jest
+Bow Tie Card visualization	View Bow Tie Card	Application Interface	Display visualization	-	Display Bow Tie visualization, Test visualization display	D3.js, Jest
+
+## Development Environment
+3. Mac OS, Visual Studio Code, ESLint, GitLens, Prettier, Prettier ESLint, Twigcs Linter, WSL, Postman, Forklift.
+
+# 4. Current State
+We are working on User Authentication we have established most of the infrastructure and are looking at unit tests.
+
+# 5. Future Plans
+## The backlog
+1. User Authentication:
+As a user, I want to register an account so that I can access the application.
+As a user, I want to log into the application so that I can access my account.
+2. Bow Tie Card Creation:
+As a user, I want to create a new Bow Tie Card so that I can begin a new hazard analysis.
+As a user, I want to enter a hazard/risk into the Bow Tie Card so that it can be analyzed.
+3. GPT API Integration:
+As a developer, I need to integrate GPT API to the application to generate suggestions based on user input.
+As a user, I want to see suggested causes for my entered risk/hazard so that I can consider them for my analysis.
+As a user, I want to see suggested preventing controls for my entered risk/hazard so that I can consider them for my analysis.
+As a user, I want to see suggested mitigating controls for my entered risk/hazard so that I can consider them for my analysis.
+As a user, I want to see suggested consequences for my entered risk/hazard so that I can consider them for my analysis.
+4. Bow Tie Card Review and Confirmation:
+As a user, I want to review and confirm the suggestions provided by the GPT API so that I can finalize my Bow Tie Card.
+As a user, I want to edit or remove the suggestions provided by the GPT API if they're not applicable to my situation.
+5. Bow Tie Card Visualization:
+As a developer, I need to create a system that generates a visual Bow Tie Card based on the confirmed data.
+As a user, I want to view a visual representation of my Bow Tie Card so that I can understand the relationships between the hazard, causes, controls, and consequences.
+6. Testing:
+As a developer, I need to thoroughly test each feature to ensure they work as expected.
+
+## Roadmap
+There is currently no roadmap. I just want to build an MVP. We can mature from there.
+
+# 6. Project Goals
+After demonstrating an MVP I want to develop a subscriptions service SaaS for sale to high-risk industry.
+
+Our primary users will be process managers, safety officers, and other professionals in high-risk industries. They need a tool to help them develop critical control plans for their processes. Key user needs might include:
+
+Ability to easily identify and categorize risks
+Ability to develop and assign mitigation steps
+Ability to track risk mitigation progress
+Compliance with industry standards and regulations
+Reporting capabilities to demonstrate compliance
+Collaboration tools to involve the entire team in risk management
+
+# 7. Developers summary of progress
+Project: CriticalView360
+
+Problem Encountered:
+
+Dale's MongoDB databases were not configured correctly. Specifically, the application failed to connect to MongoDB, throwing an "Authentication failed" error. The primary reason was that the MongoDB instance was not set up with the required user credentials and the correct database.
+
+Multiple MongoDB instances were found to be running on the system, which was causing confusion and potential conflicts.
+
+Initial work on setting up Jest for testing was hindered by the MongoDB connection issues.
+
+Solutions Implemented:
+
+We set up a new MongoDB user and a new database named "CriticalView360" using the MongoDB Shell (mongosh). The user "Admin" was given the role of dbOwner for the CriticalView360 database, which provides the necessary privileges to operate on the database.
+
+We modified the connection string in the application's database.js file to use the new MongoDB user and database.
+
+We installed the MongoDB Shell (mongosh) to interact with the MongoDB databases from the terminal.
+
+We identified multiple MongoDB instances running on the system and provided instructions on how to stop and uninstall the unwanted instances.
+
+Current Status:
+The application should now be able to connect to the correct MongoDB database using the correct user credentials. Dale needs to confirm this by running the application and checking if the "Authentication failed" error is resolved.
+
+Next Steps:
+
+Run the application and confirm if the "Authentication failed" error is resolved.
+
+If the error is resolved, check if the application is able to read and write data to the MongoDB database as expected.
+
+If there are still multiple MongoDB instances running on the system, stop and uninstall the unwanted instances following the instructions provided.
+
+Resume the setup of Jest for testing, which was postponed due to the MongoDB connection issues. Ensure that the tests are written and running correctly.
+
+If any other issues are encountered, troubleshoot as necessary.
+
+Once everything is working as expected, continue with the development of the CriticalView360 application.
+
+Priorities:
+
+Confirm that the MongoDB connection issue is resolved.
+Resume the setup of Jest for testing and ensure that tests are running correctly.
+Troubleshoot any other issues that may arise.
+Continue with the development of the CriticalView360 application.

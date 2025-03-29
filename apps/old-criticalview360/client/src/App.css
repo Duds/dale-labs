@@ -1,0 +1,335 @@
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* Reset CSS */
+
+/* Remove default margins and paddings */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set box-sizing to border-box for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default styles for anchor tags */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset form elements */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Remove outline on focus */
+*:focus {
+  outline: none;
+}
+
+/* Set body background color to white */
+body {
+  background-color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  /* Day Scheme */
+  --primary-color: #FFFFFF;
+  --secondary-color: #CCCCCC;
+  --tertiary-color: #999999;
+  --text-color: #333333;
+
+  /* Accent Color */
+  --accent-color: #5C41BF;
+  --secondary-accent-color: #8C7EBF;
+
+  /* Fonts */
+  --header-font: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --body-font: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Spacing */
+  --spacing: 15px;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font);
+  font-weight: 700;
+}
+
+button {
+  border: 1px solid var(--accent-color);
+  background-color: transparent;
+  color: var(--text-color);
+  padding: var(--spacing);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--secondary-color);
+  padding: var(--spacing);
+}
+
+.nav-sidebar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: var(--spacing);
+}
+
+.card {
+  border: 1px solid var(--secondary-color);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+/* New CSS for Login.js */
+
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+}
+
+.right {
+  flex: 1;
+  background-image: url("../public/login-splash.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.logo {
+  width: 150px;
+  height: 75px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+
+.welcome,
+.form {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the form */
+}
+
+.form input {
+  width: 100%;
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.form button {
+  width: 100%;
+  padding: var(--spacing);
+  cursor: pointer;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the submit button */
+}
+
+.footer {
+  text-align: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
+
+@media (max-width: 768px) {
+  .left {
+    flex: auto;
+  }
+
+  .right {
+    display: none;
+  }
+}
+
+/* New CSS for the Register form */
+.register-container {
+  display: flex;
+  height: 100vh;
+}
+
+.register-container .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+}
+
+.register-container .header {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.register-container .logo {
+  width: 150px;
+  height: 75px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+
+.register-container .form {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the form */
+}
+
+.register-container .form h3 {
+  /* Add styles for the Register heading */
+  font-size: 20px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.register-container .form input {
+  width: 100%;
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.register-container .form button {
+  width: 100%;
+  padding: var(--spacing);
+  cursor: pointer;
+  margin-bottom: var(--spacing); /* Add margin to the bottom of the submit button */
+}
+
+.register-container .footer {
+  text-align: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
+/* Add styles for the Landing page */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #5C41BF;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8C7EBF;
+}
+
+.latest-posts,
+.related-case-studies {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
