@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevTools Dashboard
+
+A centralized dashboard for managing and monitoring multiple Next.js applications in the monorepo.
+
+## Features
+
+- **Process Management**: Start, stop, and monitor multiple applications
+- **Port Management**: Automatic port assignment and conflict resolution
+- **Real-time Status**: Live status updates for all applications
+- **Process Logging**: Detailed logging of process operations and errors
+- **Browser Integration**: Automatic browser opening for started applications
+
+## Applications Managed
+
+| Application | Port | Description |
+|-------------|------|-------------|
+| Portfolio   | 3000 | Personal portfolio website |
+| BidWriter   | 3001 | Bid writing application |
+| OMCanvas    | 3002 | Canvas-based application |
+| CV360       | 3003 | CV management system |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or higher)
+- pnpm (v8 or higher)
+- Access to the monorepo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Navigate to the monorepo root:
+   ```bash
+   cd /path/to/monorepo
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-## Learn More
+### Running DevTools
 
-To learn more about Next.js, take a look at the following resources:
+1. Start the DevTools dashboard:
+   ```bash
+   pnpm --filter devtools dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Open your browser and navigate to:
+   ```
+   http://localhost:3999
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+### Starting Applications
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Click the "Start" button next to any application in the dashboard
+2. The application will start on its designated port
+3. A browser window will automatically open to the application
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Stopping Applications
+
+1. Click the "Stop" button next to any running application
+2. The application will be gracefully terminated
+
+### Monitoring Status
+
+- Green status indicator: Application is running
+- Red status indicator: Application is stopped
+- Port number is displayed for each application
+- Last started time is shown for running applications
+
+## Technical Details
+
+### Process Management
+
+- Processes are managed using Node.js child processes
+- Process states are persisted in `processes.json`
+- Automatic cleanup of terminated processes
+- Port conflict detection and resolution
+
+### Logging
+
+- Detailed logs are written to `devtools.log`
+- Logs include:
+  - Process start/stop events
+  - Port conflicts
+  - Error messages
+  - Process output (stdout/stderr)
+
+### Port Management
+
+- Each application has a designated port
+- Port conflicts are automatically detected
+- Conflicting processes are terminated
+- Ports are released before starting new processes
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Port Already in Use**
+   - DevTools will automatically attempt to free the port
+   - Check `devtools.log` for details
+   - Manually kill the process if needed: `lsof -ti:PORT | xargs kill -9`
+
+2. **Process Not Starting**
+   - Check the logs in `devtools.log`
+   - Verify the application exists in the monorepo
+   - Ensure all dependencies are installed
+
+3. **Status Not Updating**
+   - Refresh the dashboard
+   - Check the browser console for errors
+   - Verify the API endpoint is responding
+
+### Logging
+
+Logs are available in:
+- Browser console: Frontend issues
+- Terminal: Backend process logs
+- `devtools.log`: Detailed process management logs
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is part of the monorepo and follows its licensing terms.
